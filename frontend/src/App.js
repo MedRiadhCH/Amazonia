@@ -1,5 +1,5 @@
-import data from "./Data";
-
+import Product from './components/Product';
+import data from './Data';
 function App() {
   return (
     <div className="grid-container">
@@ -18,34 +18,7 @@ function App() {
         <div>
           <div className="row center">
             {data.products.map((product) => (
-              <div key={product.id} className="card">
-                <a href={`/product/${product.id}`}>
-                  <img className="medium" src={product.image} alt={product.image} />
-                </a>
-                <div className="card-body">
-                <a href={`/product/${product.id}`}>
-                    <h2>{product.name}</h2>
-                  </a>
-                  <div className="rating">
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                    <span>
-                      <i className="fa fa-star-half-o"></i>
-                    </span>
-                  </div>
-                  <div className="price">${product.price}</div>
-                </div>
-              </div>
+              <Product key={product._id} product={product}></Product>
             ))}
           </div>
         </div>
