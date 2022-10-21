@@ -1,4 +1,10 @@
-const data = {
+import { createContext, useState } from 'react'
+export const DataContext=createContext()
+
+
+
+const Data = (props) => {
+  const [data,SetData] =useState( {
     products: [
       {
         _id: '1',
@@ -40,7 +46,7 @@ const data = {
         image: '/images/p4.jpg',
         price: 78,
         brand: 'Nike',
-        rating: 4.5,
+        rating: 2.5,
         numReviews: 14,
         description: 'high quality product',
       },
@@ -67,5 +73,14 @@ const data = {
         description: 'high quality product',
       },
     ],
-  };
-  export default data;
+  });
+  return (
+    <DataContext.Provider value={{ data }}>
+      {props.children}
+    </DataContext.Provider>
+  )
+}
+
+export default Data
+
+
